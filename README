@@ -1,0 +1,30 @@
+NBATOPSHOT Script
+
+How it works:
+
+The script reads a list of links and players from an excel file and then using the chrome driver
+to visit those links and checks the current lowest prices and compares against a price set in the 
+excel sheet.
+
+If the current price is lower than what's set on the excel sheet it will then send a text with the
+players name, link, and current price. It will then also update the excel sheet by moving the links
+where the price has been met to a different tab and keep iterating through the remaining list.
+
+It takes about 2 seconds each link to give the browser time to load the page. You are also able to
+run the browser headless if you like, I have which line to uncomment and comment out on the script.
+After each iteration it waits 21 seconds before iterating through the list again.
+
+How to use:
+You will need to download chrome drive and specify the path of the chrome drive on line 40 of the script.
+You will also need to specify the file path for the input.xlsx on line 62.
+
+Then you will need a twilio account to receive text notifications for prices. Once you've created you twilio
+account. You need to update the config.py with the api info from twilio and the number twilio provided and 
+the number you would like to receive texts at.
+
+From there just update the input.xlsx with the players name, links and price you would like the script to
+compare the lowest current price against. Leave the 'output' tab blank as this gets updated whenever the current 
+price of a link is met.
+
+Once you have updated the things above you're ready to run the script!
+
